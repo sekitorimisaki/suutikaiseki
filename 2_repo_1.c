@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
-void read_file(FILE *fp)
+void read_file(FILE *fp , char fname[])
 {
-    char fname[] = "test.txt";
     fp = fopen(fname, "r");
     if (fp == NULL)
     {
@@ -16,6 +15,6 @@ void read_file(FILE *fp)
 int main()
 {
     FILE *fp;
-    char read, write;
-    read_file(fp);
+    char fname[] = "test.txt";
+    read_file(fp, fname);
 }
