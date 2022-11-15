@@ -27,5 +27,5 @@ int main()
     fp = fopen(fname, "r");
     read_file(fp);
     get_file(fp, chr);
-    fclose(fp);
+    fclose(fp);      
 }
