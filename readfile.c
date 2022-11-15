@@ -13,10 +13,12 @@ void read_file(FILE *fp )
 }
 void get_file(FILE *fp,FILE *fi , int chr)
 {
-    while ((chr = fgetc(fp)) != EOF)
+    int i = 0;
+    while ((chr = fgetc(fp)) != EOF && i<10)
     {
         fputc(chr , fi);
         putchar(chr);
+        i++;
     }
 }
 int main()
