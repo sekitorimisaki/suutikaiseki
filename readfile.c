@@ -11,21 +11,24 @@ void read_file(FILE *fp )
         printf("file opened!\n");
     }
 }
-void get_file(FILE *fp, int chr)
+void get_file(FILE *fp,FILE *fi , int chr)
 {
     while ((chr = fgetc(fp)) != EOF)
     {
+        fputc(chr , fi);
         putchar(chr);
     }
 }
 int main()
 {
-    FILE *fp;
+    FILE *fp , *fi;
     int chr;
     char read, write;
     char fname[] = "test.txt";
+    char fna[] = "write.txt";
+    fi = fopen(fna , "w");
     fp = fopen(fname, "r");
     read_file(fp);
-    get_file(fp, chr);
-    fclose(fp);      
+    get_file(fp , fi , chr);
+    fclose(fp);
 }
