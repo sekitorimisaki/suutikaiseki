@@ -16,10 +16,14 @@ void get_file(FILE *fp,FILE *fi , int chr)
     int i = 0;
     while ((chr = fgetc(fp)) != EOF && i<10)
     {
+        if(isalpha(chr) == 0)continue;
         fputc(chr , fi);
         putchar(chr);
         i++;
     }
+}
+char judge(char trans){
+
 }
 int main()
 {
