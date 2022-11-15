@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <ctype.h>
-void read_file(FILE *fp)
+void write_file(FILE *fp)
 {
-    char fname[] = "test.txt";
-    fp = fopen(fname, "r");
+    char fname[] = "write.txt";
+    fp = fopen(fname, "w");
     if (fp == NULL)
     {
         printf("%s file not open!\n", fname);
@@ -16,6 +16,5 @@ void read_file(FILE *fp)
 int main()
 {
     FILE *fp;
-    char read, write;
-    read_file(fp);
+    fclose(fp);
 }
