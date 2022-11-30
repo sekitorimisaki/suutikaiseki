@@ -53,7 +53,7 @@ int main()
     }
     for (int i = 0; i < 26; i++)
     {
-        std::cout << char(character[i].alphabet) << " : " << character[i].count << "回 (確率:"<<  std::setprecision(2)<< character[i].count/number_file*100 << "%)"<< std::endl;
+        std::cout << char(character[i].alphabet) << " : " << character[i].count << "(確率:"<<  std::setprecision(2)<< character[i].count/number_file*100 << "%)"<< std::endl;
     }
     fclose(sort);
 }
