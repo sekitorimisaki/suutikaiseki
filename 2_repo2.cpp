@@ -26,6 +26,8 @@ int main()
     system("sort -f write.txt > sort.txt");
     sort = fopen(fname, "r");
     number_file = count_letter(sort);
+    std::cout << "文字の総数" << number_file << std::endl;
+
     fclose(sort);
     sort = fopen(fname, "r");
     character[0].alphabet = 'a';
