@@ -11,17 +11,14 @@ int count_letter(FILE *fp)
     }
     return count;
 }
-int write_letter(int number, FILE *read, FILE *write)
+void write_letter(int number, FILE *read, FILE *write)
 {
     int chr, count = 0, letter , result = 0;
     while ((chr = fgetc(read)) != EOF && count < number)
     {
         count++;
     }
-    if(chr == '\n')return result;
     fputc(chr, write);
-    result = 1;
-    return result;
 }
 int main()
 {
@@ -29,7 +26,7 @@ int main()
     int number_file, letter_number;
     int chr;
     int result;
-    char read_name[] = "write.txt";
+    char read_name[] = "1_result.txt";
     char write_name[] = "4_result.txt";
     srand((unsigned int)time(NULL)); // 現在時刻の情報で初期化
     write = fopen(write_name, "w");
@@ -40,8 +37,7 @@ int main()
     {
         read = fopen(read_name, "r");
         letter_number = rand() % number_file;
-        result = write_letter(letter_number, read, write);
-        if(result == 0)i--;
+        write_letter(letter_number, read, write);
         fclose(read);
     }
     fclose(write);
