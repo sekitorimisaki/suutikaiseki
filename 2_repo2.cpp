@@ -7,15 +7,14 @@ struct alphabet_count
 
 int main()
 {
-    FILE *sort, *hoge;
+    FILE *sort;
     alphabet_count character[100];
     int chr, i = 0;
     char read, write;
     char fname[] = "sort.txt";
-    char fna[] = "hoge.txt";
+    char fna[] = "2_result.txt";
     system("sort -f write.txt > sort.txt");
     sort = fopen(fname, "r");
-    hoge = fopen(fna, "w");
     character[0].alphabet = 'a';
     character[0].count = 0;
     while ((chr = fgetc(sort)) != EOF)
@@ -39,5 +38,4 @@ int main()
         std::cout << char(character[i].alphabet) << " : " << character[i].count << std::endl;
     }
     fclose(sort);
-    fclose(hoge);
 }
