@@ -2,7 +2,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <time.h>
-int count_letter(FILE *fp)
+int count_letter(FILE *fp)//文字数のカウント
 {
     int chr, count = 0;
     while ((chr = fgetc(fp)) != EOF)
@@ -14,7 +14,7 @@ int count_letter(FILE *fp)
 void write_letter(int number, FILE *read, FILE *write)
 {
     int chr, count = 0, letter , result = 0;
-    while ((chr = fgetc(read)) != EOF && count < number)
+    while ((chr = fgetc(read)) != EOF && count < number)//適当に出した数字までの文字
     {
         count++;
     }
