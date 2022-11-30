@@ -1,6 +1,7 @@
+// test.txtの中の英語だけを取り出して一文字ずつwriteファイルに書き込むプログラム
 #include <stdio.h>
 #include <ctype.h>
-void read_file(FILE *fp )
+void read_file(FILE *fp)
 {
     if (fp == NULL)
     {
@@ -11,30 +12,33 @@ void read_file(FILE *fp )
         printf("file opened!\n");
     }
 }
-void get_file(FILE *fp,FILE *fi , int chr)
+void write_file(FILE *fp, FILE *fi, int chr)
 {
     int i = 0;
-    while ((chr = fgetc(fp)) != EOF && i<10)
+    while ((chr = fgetc(fp)) != EOF)
     {
-        if(isalpha(chr) == 0)chr = ' ';
-        fputc(chr , fi);
+        if (chr != ' '&& chr != '\n')
+        {
+            if (isalpha(chr) == 0)
+            {
+                chr = ' ';
+            }
+        }
+        fputc(chr, fi);
         putchar(chr);
         i++;
     }
 }
-char judge(char trans){
-
-}
 int main()
 {
-    FILE *fp , *fi;
+    FILE *fp, *fi;
     int chr;
     char read, write;
-    char fname[] = "test.txt";
-    char fna[] = "write.txt";
-    fi = fopen(fna , "w");
+    char fname[] = "original.txt";
+    char fna[] = "1_result.txt";
+    fi = fopen(fna, "w");
     fp = fopen(fname, "r");
     read_file(fp);
-    get_file(fp , fi , chr);
+    write_file(fp, fi, chr);
     fclose(fp);
 }
